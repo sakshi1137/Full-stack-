@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services - Beauty & Wellness</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .fade-in { animation: fadeIn 0.8s ease-in; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-rose-100 via-pink-50 to-fuchsia-100 min-h-screen font-sans">
+
+  <!-- Header -->
+  <header class="text-center py-8">
+    <h1 class="text-4xl font-bold text-pink-700">Our Services</h1>
+    <p class="text-gray-600 mt-2">Explore beauty and wellness services made just for you 🌺</p>
+  </header>
+
+  <!-- Filter Buttons -->
+  <div class="flex flex-wrap justify-center gap-4 mb-8">
+    <button onclick="filterServices('all')" class="filter-btn bg-pink-600 text-white px-4 py-2 rounded-full hover:bg-pink-700 transition">All</button>
+    <button onclick="filterServices('hair')" class="filter-btn bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition">Hair</button>
+    <button onclick="filterServices('skin')" class="filter-btn bg-fuchsia-600 text-white px-4 py-2 rounded-full hover:bg-fuchsia-700 transition">Skin</button>
+    <button onclick="filterServices('wellness')" class="filter-btn bg-rose-600 text-white px-4 py-2 rounded-full hover:bg-rose-700 transition">Wellness</button>
+  </div>
+
+  <!-- Services Grid -->
+  <section id="serviceGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-6 pb-12">
+    <!-- Example Service Card -->
+    <div class="card fade-in bg-white p-6 rounded-2xl shadow-md border-2 border-pink-100 service-card" data-category="hair">
+      <h2 class="text-xl font-semibold text-pink-700 mb-2">Hair Styling</h2>
+      <p class="text-gray-600">Trendy cuts and styles for every occasion 💇‍♀️</p>
+    </div>
+
+    <div class="card fade-in bg-white p-6 rounded-2xl shadow-md border-2 border-purple-100 service-card" data-category="skin">
+      <h2 class="text-xl font-semibold text-purple-700 mb-2">Facial Treatment</h2>
+      <p class="text-gray-600">Glow up with our rejuvenating skin facials ✨</p>
+    </div>
+
+    <div class="card fade-in bg-white p-6 rounded-2xl shadow-md border-2 border-fuchsia-100 service-card" data-category="wellness">
+      <h2 class="text-xl font-semibold text-fuchsia-700 mb-2">Aromatherapy</h2>
+      <p class="text-gray-600">Relax your mind with soothing aromas 🌿</p>
+    </div>
+
+    <div class="card fade-in bg-white p-6 rounded-2xl shadow-md border-2 border-pink-100 service-card" data-category="hair">
+      <h2 class="text-xl font-semibold text-pink-700 mb-2">Hair Coloring</h2>
+      <p class="text-gray-600">Vibrant shades and professional color care 🎨</p>
+    </div>
+
+    <div class="card fade-in bg-white p-6 rounded-2xl shadow-md border-2 border-purple-100 service-card" data-category="skin">
+      <h2 class="text-xl font-semibold text-purple-700 mb-2">Skin Polishing</h2>
+      <p class="text-gray-600">Soft and radiant skin with every session 💖</p>
+    </div>
+
+    <div class="card fade-in bg-white p-6 rounded-2xl shadow-md border-2 border-fuchsia-100 service-card" data-category="wellness">
+      <h2 class="text-xl font-semibold text-fuchsia-700 mb-2">Spa Therapy</h2>
+      <p class="text-gray-600">Complete body relaxation and wellness 💆‍♀️</p>
+    </div>
+  </section>
+
+  <!-- JS for Filter -->
+  <script>
+    function filterServices(category) {
+      const cards = document.querySelectorAll('.service-card');
+      cards.forEach(card => {
+        const match = category === 'all' || card.dataset.category === category;
+        card.style.display = match ? 'block' : 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>
